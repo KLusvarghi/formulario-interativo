@@ -69,13 +69,13 @@ form .btn-login {
 
 form{
     /*sendo o animation dizendo apenas como será o animation do nosso keyframe*/
-    animation-name: fade; /*para chamar a animação*/
+    animation-name: move; /*para chamar a animação*/
     animation-duration: 0.5s; /*duração da anmação*/
 }
 
 /* APARIÇÃO DO FORM*/
 
-@keyframes fade {
+@keyframes move {
   /*usado para fazer animações*/
   from {
     /*inicio = 0%*/
