@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  background-color: #7159c1;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 32px;
+  letter-spacing: 1px; /*espaço entre as letras*/
+  color: white;
+  margin: 20px 0;
+}
+
+form {
+  background-color: white;
+  margin: 20px 0;
+  padding: 20px 25px;
+  border-radius: 5px;
+}
+
+form .input-block {
+  margin-bottom: 20px;
+}
+
+form .input-block label {
+  font-size: 14px;
+  color: darkslateblue;
+}
+
+form .input-block input {
+  width: 100%;
+  display: block;
+  margin-top: 8px;
+  padding: 7px;
+  font-size: 16px;
+  color: #7159c1;
+  border-radius: 2px;
+  border: 1px solid #ccddef;
+  outline-color: #7159c1; /*quando estiver selecionado a borda muda*/
+}
+
+form .btn-login {
+  display: block;
+  min-width: 120px;
+  border: none;
+  background-color: #7159c1;
+  color: white;
+  border-radius: 25px;
+  padding: 7px; /*dá o tamanho para o botaõ*/
+  margin: auto; /*centraliza o botao*/
+}
+
+
+
+
+
+form{
+  overflow: hidden; /*Para que os campos não ficam bugando e saindo de dentro do formulário*/
+  animation: fade 0.2s;
+}
+
+
+
+
+
+form .input-block:nth-child(1){ /*nth-child é uma forma de aplicar coisas distintaas para o campos que são iguais, tipos dois input's, que necessariamente são FILHOS do FORM, e ele informa qual filho será aplicado essas edições*/
+    /*sendo o animation dizendo apenas como será o animation do nosso keyframe*/
+    animation-name: move; /*para chamar a animação*/
+    animation-duration: 500ms; /*duração da anmação*/
+    animation-delay: 0.25s ; /*É um delay para a entrada dos campos*/
+}
+
+form .input-block:nth-child(2) {
+  animation: move 400ms; /*para chamar a animação, e colocando outro parametro junto de duração da animação*/
+  animation-delay: 100ms; /*É um delay para a entrada dos campos*/
+  animation-fill-mode: backwards; /*ele vai trabalhar as ideias enquanto não está acontecendo movimento nenhum, que é quando ele está esperando começar(delay), e quando ele termina*/
+  /*sendo o "backwards" ficando na posição inicial do from*/
+}
+
+
+form .btn-login{
+  animation: move 400ms; 
+  animation-delay: 250ms;
+  animation-fill-mode: backwards
+}
+
+
+/*
+Fazer os campos aparecem da esquerda pra direita, suavizando a entrada e fazendo-os entrar em momentos distintos
+*/
+
+@keyframes move {
+  /*usado para fazer animações*/
+  from {
+    /*inicio = 0%*/
+    opacity: 0;
+    transform: translateX(-35%); /*ele vai fazer um movimento no eixo x (horizontal)*/
+  }
+  to {
+    /*fim = 100%*/
+    opacity: 1;
+    transform: translateX(0%); /*ele vai fazer um movimento no eixo x (horizontal), sendo 0 a posição inicial dele*/
+  }
+}
+
+
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Quando clicar em Login, fazer o formulário sair da tela, indo para baixo */
+
+.form-hide{ /*Sendo essa a classe que declarei lá no JavaScript*/
+  animation: down 500ms forwards;
+  animation-fill-mode: forwards; /*ficando na posição final dele*/
+}
+
+
+@keyframes down { /*para baixo, fazendo o formulário sair para baixo*/
+  from{
+    transform: translateY(0);
+  }to{
+    transform: translateY(100vh); /*fazendo ele sair da tela, "vh" tipo de medida, view hight*/
+  }
+}
+
+/* animation-fill-mode: = ele trabalha em momentos onde não está acontecendo animação */
