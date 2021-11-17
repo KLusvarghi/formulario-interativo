@@ -178,13 +178,13 @@ Fazer os campos aparecem da esquerda pra direita, suavizando a entrada e fazendo
 
 
 form.validate-error{ /*classe que irá validar se houver algum erro*/
-  animation: nono 500ms linear; /*ele é um cubic-bezear()*/
+  animation: nono 200ms linear, fade paused; /*ele é um cubic-bezear(), e linear para ele sempre manter a linha reta*/
   animation-play-state: fade paused; /*para que ele pare a animação do fade e não de bugs*/
   animation-iteration-count: 2; /*é a quantidade de vezes que ele irá executar*/
 }
 
 @keyframes nono { /*terá 4 momentos*/
-  0%{
+  0%,100%{ /*Podendo agrupar opções iguais*/
     transform: translateX(0);
   }
   35%{
@@ -192,8 +192,5 @@ form.validate-error{ /*classe que irá validar se houver algum erro*/
   }
   70%{
     transform: translateX(15%);
-  }
-  100%{
-    transform: translateX(0);
   }
 }
