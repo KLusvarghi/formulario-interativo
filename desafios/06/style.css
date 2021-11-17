@@ -65,6 +65,7 @@ form .btn-login {
   border-radius: 25px;
   padding: 7px; /*dá o tamanho para o botaõ*/
   margin: auto; /*centraliza o botao*/
+  cursor: pointer;
 }
 
 
@@ -174,3 +175,25 @@ Fazer os campos aparecem da esquerda pra direita, suavizando a entrada e fazendo
 }
 
 /* Fazer o formulário dizer não-não (vibrar) caso haja campos vazios.*/
+
+
+form.validate-error{ /*classe que irá validar se houver algum erro*/
+  animation: nono 500ms linear; /*ele é um cubic-bezear()*/
+  animation-play-state: fade paused; /*para que ele pare a animação do fade e não de bugs*/
+  animation-iteration-count: 2; /*é a quantidade de vezes que ele irá executar*/
+}
+
+@keyframes nono { /*terá 4 momentos*/
+  0%{
+    transform: translateX(0);
+  }
+  35%{
+    transform: translateX(-15%);
+  }
+  70%{
+    transform: translateX(15%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}

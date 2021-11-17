@@ -3,10 +3,26 @@
     const form = document.querySelector("form"); //pegando o form, por ter só um form eu posso pegar ele direto
 
     btnLogin.addEventListener("click", event => { //"addEventListerner é um carinha que vai "ouvir" eventos que acontecer com btnLogin, que o nome desse evendo se chama "click", e quando esse evento acontecer ele já irá realizar tudo que estiver dentro dessa FUNÇÃO, que se chama evendo, que foi declarada na mesma linha
-
         event.preventDefault(); //dizendo aqui para ee não fazer o submit(enviar) que era pra ser feito ao clicar no botao, fazendo que a pagina fique parada 
 
-        form.classList.add("form-hide"); //adicionando uma CLASSE para o form
+
+        const campos = [... document.querySelectorAll(".input-block input")]; /* neste [...  ] ele está desconstruindo os elementos para um ARRAY, pegando os elemento input's*/
+
+        campos.forEach(campos => { /*para cada campo que ele passar ele irá fazer isso */
+            if(campos.value === "") { /* se qualquer campo tiver valor vazio el irá adicionar uma classe chamada "validate-error" */
+                form.classList.add("validate-error"); /*adicionando a classe que estará no CSS */
+            }
+        })
+
+        const formError = document.querySelector(".validade-error"); /*pegando a classe validade error para ver se ela existe */
+        if(formError){ /**se realmente existir o formError */
+            formError.addEventListener("animationend", (event) =>{ /*irá adicionar um evento que quando chegar ao final da animação ele fará o "event" (event que é a função)*/
+                if (event.animationName === "nono") /*e se caso evento for o "nono"*/
+                formError.classList.remove("validate-error") /* ele irá remover a classe chamada "validate-error" */
+            })
+        }else{ /*caso não tenha nenhum erro ele irá prosseguir  */
+            form.classList.add("form-hide"); //adicionando uma CLASSE para o form
+        }
 
     })
 
@@ -28,5 +44,7 @@
             document.querySelector("body").style.overflow = "none"; //para caso queiramos que a página após a ação de excuir o form tenha uma barra de rolagem para biaxo, temos que tirar o overflor hidden
         }
     })
+
+
 
 
