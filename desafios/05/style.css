@@ -158,9 +158,19 @@ Fazer os campos aparecem da esquerda pra direita, suavizando a entrada e fazendo
 
 /* 04 - Remover formulário do html e não mostrar rolagem enquanto o formulário está saindo da tela */
 
+/* 05 - Adicionar um efeito diferente de timing para a saída do formulário */
+
 .form-hide{ /*Sendo essa a classe que declarei lá no JavaScript, para quando clicar no botão*/
   animation: down 500ms forwards;
   animation-fill-mode: forwards; /*ficando na posição final dele*/
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); 
+
+  /* 
+  ease-in = tem uma chegada de vagar e saida rápida
+  ease-in-out = ter uma chegada de vagar, no meio rápido e sair devagar
+  ease-out = chegada de vagar e saidade devagar
+  cubic-bezier = ver no inspecionar no google
+  staps() = são as paradas
+  */
 }
 
-/* Fazer o formulário dizer não-não (vibrar) caso haja campos vazios. */
