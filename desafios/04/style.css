@@ -134,15 +134,11 @@ Fazer os campos aparecem da esquerda pra direita, suavizando a entrada e fazendo
 }
 
 
-/* Quando clicar em Login, fazer o formulário sair da tela, indo para baixo */
-
-.form-hide{ /*Sendo essa a classe que declarei lá no JavaScript, para quando clicar no botão*/
-  animation: down 500ms forwards;
-  animation-fill-mode: forwards; /*ficando na posição final dele*/
-}
 
 
-@keyframes down { /*para baixo, fazendo o formulário sair para baixo*/
+
+
+@keyframes down { /* 03 -para baixo, fazendo o formulário sair para baixo*/
   from{
     transform: translateY(0);
   }to{
@@ -154,4 +150,15 @@ Fazer os campos aparecem da esquerda pra direita, suavizando a entrada e fazendo
 
 
 
-/* Remover formulário do html e não mostrar rolagem enquanto o formulário está saindo da tela */
+
+/* 03 - Quando clicar em Login, fazer o formulário sair da tela, indo para baixo */
+
+
+
+
+/* 04 - Remover formulário do html e não mostrar rolagem enquanto o formulário está saindo da tela */
+
+.form-hide{ /*Sendo essa a classe que declarei lá no JavaScript, para quando clicar no botão*/
+  animation: down 500ms forwards;
+  animation-fill-mode: forwards; /*ficando na posição final dele*/
+}
