@@ -132,3 +132,22 @@ Fazer os campos aparecem da esquerda pra direita, suavizando a entrada e fazendo
     transform: scale(1);
   }
 }
+
+
+/* Quando clicar em Login, fazer o formulário sair da tela, indo para baixo */
+
+.form-hide{ /*Sendo essa a classe que declarei lá no JavaScript*/
+  animation: down 500ms forwards;
+  animation-fill-mode: forwards; /*ficando na posição final dele*/
+}
+
+
+@keyframes down { /*para baixo, fazendo o formulário sair para baixo*/
+  from{
+    transform: translateY(0);
+  }to{
+    transform: translateY(100vh); /*fazendo ele sair da tela, "vh" tipo de medida, view hight*/
+  }
+}
+
+/* animation-fill-mode: = ele trabalha em momentos onde não está acontecendo animação */
