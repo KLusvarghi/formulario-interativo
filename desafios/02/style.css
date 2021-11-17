@@ -67,24 +67,68 @@ form .btn-login {
   margin: auto; /*centraliza o botao*/
 }
 
+
+
+
+
 form{
-    /*sendo o animation dizendo apenas como será o animation do nosso keyframe*/
-    animation-name: fade; /*para chamar a animação*/
-    animation-duration: 0.5s; /*duração da anmação*/
+  overflow: hidden; /*Para que os campos não ficam bugando e saindo de dentro do formulário*/
+  animation: fade 0.2s;
 }
 
-/* APARIÇÃO DO FORM*/
 
-@keyframes fade {
+
+
+
+form .input-block:nth-child(1){ /*nth-child é uma forma de aplicar coisas distintaas para o campos que são iguais, tipos dois input's, que necessariamente são FILHOS do FORM, e ele informa qual filho será aplicado essas edições*/
+    /*sendo o animation dizendo apenas como será o animation do nosso keyframe*/
+    animation-name: move; /*para chamar a animação*/
+    animation-duration: 500ms; /*duração da anmação*/
+    animation-delay: 0.25s ; /*É um delay para a entrada dos campos*/
+}
+
+form .input-block:nth-child(2) {
+  animation: move 400ms; /*para chamar a animação, e colocando outro parametro junto de duração da animação*/
+  animation-delay: 100ms; /*É um delay para a entrada dos campos*/
+  animation-fill-mode: backwards; /*ele vai trabalhar as ideias enquanto não está acontecendo movimento nenhum, que é quando ele está esperando começar(delay), e quando ele termina*/
+  /*sendo o "backwards" ficando na posição inicial do from*/
+}
+
+
+form .btn-login{
+  animation: move 400ms; 
+  animation-delay: 250ms;
+  animation-fill-mode: backwards
+}
+
+
+/*
+Fazer os campos aparecem da esquerda pra direita, suavizando a entrada e fazendo-os entrar em momentos distintos
+*/
+
+@keyframes move {
   /*usado para fazer animações*/
   from {
     /*inicio = 0%*/
     opacity: 0;
-    transform: scale(0.8); /*ele transforma a caixa, dando um tamanho*/
+    transform: translateX(-35%); /*ele vai fazer um movimento no eixo x (horizontal)*/
   }
   to {
     /*fim = 100%*/
     opacity: 1;
-    transform: scale(1); /*ele transforma a caixa, dando um tamanho*/
+    transform: translateX(0%); /*ele vai fazer um movimento no eixo x (horizontal), sendo 0 a posição inicial dele*/
+  }
+}
+
+
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
